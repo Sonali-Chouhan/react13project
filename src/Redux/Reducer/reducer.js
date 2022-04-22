@@ -16,13 +16,16 @@ const initialState = {
           List: action.payload,
           
         };
-        case sing_In:{
-          
+        case sing_In:
+          console.log("v1",action.payload)
+          console.log("v2",action.payload.data)
+          const Token=[action.payload.data.token]
+          localStorage.setItem("Token",Token)
           return{
             ...state,
             Data:action.payload
           };
-        }
+        
         case Errors:
           debugger
           return{

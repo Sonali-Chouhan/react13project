@@ -12,6 +12,7 @@ const SingUp = () => {
   const dispatch=useDispatch();
   let navigate = useNavigate();
   const record=useSelector((state)=>state.reducer.List)
+  
   console.log("record",record)
   const handleRegistration=(data)=>{
     

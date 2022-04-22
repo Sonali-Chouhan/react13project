@@ -9,9 +9,13 @@ import { singIn } from "../Redux/Action/action";
 
 
 const SingIn = () => {
-  
     const {register,handleSubmit,formState: { errors }}=useForm();
     const records=useSelector((state)=>state.reducer.Data)
+    const tokesss=records.data
+    
+    
+    console.log(" const tokesss",tokesss)
+    
     const object=useSelector((state)=>state.reducer.errors)
     console.log("records",records)
     console.log("object",object)
