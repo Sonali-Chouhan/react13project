@@ -1,0 +1,140 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.FormDiv{
+   width: 100%;
+    display: flex;
+    border-collapse: collapse;
+    align-items: center;
+    justify-content: space-around;
+  
+}
+.field{
+  text-align: left;
+  background-color:whitesmoke;
+  width: 100%;
+  padding: 10px 60px;
+  padding-bottom: 10px 60px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 3px solid #0088cc;
+  /* border-radius: 20px; */
+  box-sizing: border-box;
+}
+.heading{
+  padding: 20px 0px;
+  }
+
+.button{
+  /* border-radius: 10px; */
+  border:3px solid   #b3e6ff;
+  background-color: #80aaff;
+}
+.button:hover{
+  border:3px solid    #b3e6ff ;
+  background-color: #4775d1;
+}
+.header{
+  text-align: right;
+  background-color: rgb(11, 96, 223);
+  padding: 20px 0px;
+}
+.header a{
+  text-decoration: none;
+  padding: 0px 20px;
+  color: rgb(235, 222, 222);
+  transition: .4s;
+  font-size: 19px;
+  letter-spacing: 5px;
+  margin: 10px;
+}
+.header a:hover{
+  color:#3467d6;
+}
+.error{
+  color: red;
+} 
+.ToastContainer
+{
+  position:"bottom-left";
+
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Formdiv{
+  width: 100%;
+   display: flex;
+   border-collapse: collapse;
+   align-items: center;
+   justify-content: space-around;
+ 
+}
+.fields{
+ text-align: left;
+ background-color:whitesmoke;
+ width: 100%;
+ padding: 10px 60px;
+ padding-bottom: 10px 60px;
+ margin: 10px 0;
+ display: inline-block;
+ border: 3px solid #00a3cc;
+ /* border-radius: 20px; */
+ box-sizing: border-box;
+}
+.headings{
+  padding: 20px 0px;
+  }
+
+.buttons{
+  /* border-radius: 10px; */
+  border:3px solid #000080 ;
+  background-color: #0066ff;
+}
+.buttons:hover{
+  border:3px solid  #000080 ;
+  background-color:  #4d88ff;
+}
+/* .web{
+  width: 70%;
+  height: 10vh;
+  padding-right: 80%;
+  padding-left: 30%;
+} */
