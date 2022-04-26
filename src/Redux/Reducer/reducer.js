@@ -2,7 +2,7 @@ import {sing_Up, sing_In, Errors} from "../Type"
 const initialState = {
     List: [],
     Data:[],
-    errors:"Invalid Email And Password"
+    errors:" OOPS :) This Email Already Exists "
   };
   export const reducer = function (state = initialState, action) {
     console.log("action",action)
@@ -17,18 +17,20 @@ const initialState = {
           
         };
         case sing_In:
-          console.log("v1",action.payload)
-          console.log("v2",action.payload.data)
+          console.log("v4",action.payload.data.user.id)
+          const id=action.payload.data.user.id
+          localStorage.setItem("User_Id",id)
           const Token=[action.payload.data.token]
           localStorage.setItem("Token",Token)
           return{
             ...state,
-            Data:action.payload
+            Data:action.payload,
+            id:id
           };
         
         case Errors:
-          debugger
-          return{
+          console.log(state.errors)
+         return{
             ...state,
             errors:[state.errors]
           }

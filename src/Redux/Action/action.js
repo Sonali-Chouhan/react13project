@@ -23,7 +23,7 @@ export const singUp = (data) => {
             })
             .catch(error => {
                 dispatch({
-                    type:"ERROR",
+                    type:Errors,
                     payload: error.response
                 })
             });
