@@ -10,6 +10,7 @@ const Navbar = () => {
       <Link to="/usercontext">addContext</Link>
       <Link to="/userlist">showList</Link>
       <Link to="/userLogOut">Log-Out</Link>
+      {/* <Link to="/showpost">showpost</Link> */}
       <Link to="/about">About</Link>
     </div>
     <div>

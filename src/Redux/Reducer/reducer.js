@@ -5,8 +5,7 @@ const initialState = {
     errors:" OOPS :) This Email Already Exists "
   };
   export const reducer = function (state = initialState, action) {
-    console.log("action",action)
-  
+    
     switch (action.type) {
       
       case sing_Up:

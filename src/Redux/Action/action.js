@@ -2,17 +2,7 @@ import { sing_Up ,sing_In,Errors} from "../Type";
 import instance from "../../Base/ApiBase";
 
 export const singUp = (data) => {
-  
-//   instance.post('/signup',data)
-//       .then( userdata => 
-//           dispatch({
-//               type: sing_Data,
-//               payload: userdata
-//           })
-//       )
-//       .catch( error => {
-//           console.log(error);
-//       });
+
       return (dispatch) => {
         return instance.post('/signup', {user:data})
             .then(data => {
@@ -50,4 +40,4 @@ export const singIn = (data) => {
         }
     
     };
-    
+   

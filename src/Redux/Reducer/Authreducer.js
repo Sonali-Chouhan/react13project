@@ -1,36 +1,37 @@
-import {create_post, show_post} from "../Type";
+import { create_post, show_List, delete_post,show_post,edit_post } from "../Type";
 const initialState = {
-    User: [],
-    Item:[]
-    
-  };
-  export const Authreducer = function (state = initialState, action) {
-    console.log("action",action)
-  
-    switch (action.type) {
-      
-      case create_post :
-          // console.log("c1",action.payload)
-          // console.log("c2",action.payload.data)
-          // console.log("c3",action.payload.data.post)
-          // console.log("c4",action.payload.data.post.id)
-          // const id=action.payload.data.post.id
-        return {
-          ...state,
-          User: action.payload,
-          
-          
-        };
-      case show_post:
-        console.log("g1",action.payload.data.posts)
-        const obj=action.payload.data.posts
+  User: [],
+};
+export const Authreducer = function (state = initialState, action) {
+  console.log("hhh", action);
+  switch (action.type) {
+    case create_post:
+      return {
+        ...state,
+        User: action.payload,
+      };
+    case show_List:
+     
+      return {
+        ...state,
+        User: action.payload,
+      };
+    case delete_post:
+      return {
+        ...state,
+        User:action.payload,
 
-        return{
-          ...state,
-          Item:action.payload,
-          Isshow:obj
-        }
-        default :
-        return state;
-    }
+      };
+    case show_post:
+      console.log("s1",action.payload)
+      return {
+        ...state,
+        User:state.User,
+        isShow:action.payload
+      };
+   
+
+    default:
+      return state;
   }
+};

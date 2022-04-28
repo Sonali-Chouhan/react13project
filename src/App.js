@@ -15,6 +15,8 @@ import ContextAdd from "./Component/DashBoard/ContextAdd";
 import ShowList from "./Component/DashBoard/ShowList";
 import LogOut from "./Component/DashBoard/LogOut";
 import Navbar from "./Component/DashBoard/Navbar";
+import ShowPost from "./Component/DashBoard/ShowPost";
+//import LoginUser from "./Component/User";
 
 function App() {
   const gettoken = localStorage.getItem("Token");
@@ -30,9 +32,11 @@ function App() {
             <Routes>
               <Route path="/dashboard" element={<Dashbord />} />
               <Route path="/usercontext" element={<ContextAdd />} />
+              <Route path="/usercontext/:id" element={<ContextAdd />} />
               <Route path="/userlist" element={<ShowList />} />
               <Route path="/userLogOut" element={<LogOut />} />
               <Route path="/about" element={<About />} />
+              <Route path="/showpost" element={<ShowPost/>}/>
               <Route />
             </Routes>
           </>
@@ -45,6 +49,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/user-singIn" element={<SingIn />} />
               <Route path="/user-singUp" element={<SingUp />} />
+              {/* <Route path="/login-user" element={<LoginUser />} /> */}
               <Route path="*" element={<PageNot />} />
             </Routes>
           </>

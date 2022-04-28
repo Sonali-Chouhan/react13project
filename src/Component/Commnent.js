@@ -39,4 +39,33 @@
 //     type:show_post,
 //     payload: request
 // }
+
+
+
+// update
+// if(id){
+//   dispatch(Updata_User(id,user))
+//   toast.success("Successfully Update", {
+//     icon: "🟢",
+//   });
+//    }else{
+//     dispatch(get_user(user));
+//     toast.success("Successfully Submit", {
+//       icon: "🚀"
+//     });
+//   }
+// {
+//   id ?
+//   (
+//     <span>
+//       <button type="submit">Save</button>{' '}
+//       <button type="submit"
+//       onClick={handleCancel}>Cancel</button>
+//     </span>
+//    )
+ 
+//   :
+//   <input type="submit" name="Submit" />
+  
+// }
     

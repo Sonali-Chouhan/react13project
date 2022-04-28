@@ -12,6 +12,7 @@ const navLink = () => {
          <Link to="/">Home</Link>
          <Link to="/user-singIn">SingIn</Link>
          <Link to="/user-singUp" >SingUp</Link>
+         {/* <Link to="/login-user" >LoginUser</Link> */}
          </div>
         </nav>
    

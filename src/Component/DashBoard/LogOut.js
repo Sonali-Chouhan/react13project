@@ -6,6 +6,7 @@ const LogOut = () => {
   //let navigate = useNavigate();
     const handleLogout=()=>{
         localStorage.removeItem("Token")
+        localStorage.removeItem("User_Id")
         // navigate("/")
         window.location.href="/";
       }
