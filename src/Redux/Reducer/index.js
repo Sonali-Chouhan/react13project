@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import {reducer} from "./reducer"
-import {Authreducer} from "./Authreducer";
+import {reducer} from "./Reducer1"
+import {Authreducer} from "./Reducer2";
  const rootReducer = combineReducers({
   reducer,
   Authreducer

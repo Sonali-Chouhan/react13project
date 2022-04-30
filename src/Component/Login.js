@@ -1,37 +1,53 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { useDispatch} from "react-redux";
+import { useDispatch ,useSelector} from "react-redux";
 import { useNavigate } from "react-router";
-import { singIn } from "../Redux/Action/action";
+import { singIn } from "../Redux/Action/Action1";
 
-const SingIn = () => {
+
+const Login = () => {
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
-  let navigate = useNavigate();
+  const data=useSelector((state)=>state.reducer?.message)
+  const data1=useSelector((state)=>state.reducer?.errors)
 
-  //login Functionality Here
+  const Data1=useSelector((state)=>state.reducer?.List?.data?.message);
+  if(Data1){
+    toast.info("User Registered successfully :-)")
+  }
+ console.log("data1",data1)
   const handleLogin = (data) => {
-    dispatch(singIn(data));
+    
+    // if(data1?.data?.errors==="Invalid email and password"){
+    //   toast.error("ivalid email and password")
+    // }
+     dispatch(singIn(data));
+      toast.success(" 🚀Successfully SingIn");
+
   
-    navigate("/dashboard");
-    console.log("data", data);
-    toast.success(" 🚀Successfully SingIn");
-    // window.location.href="/dashboard";
-  };
+  
+    
+    };
+  useEffect(()=>{
+  if (data){
+  window.location.href="/dashboard"
+  }
+
+},[data])
   return (
     <div>
       <div className="FormDiv">
-        
         <Form onSubmit={handleSubmit(handleLogin)}>
           <div className="field">
-            <h3 className="heading">SingIn</h3>
+            <h3 className="heading">Login</h3>
             <Form.Group className="mb-4" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -69,9 +85,11 @@ const SingIn = () => {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
+            
             <Button className="button" type="submit">
               Submit
             </Button>
+            
           </div>
         </Form>
       </div>
@@ -79,4 +97,4 @@ const SingIn = () => {
   );
 };
 
-export default SingIn;
+export default Login;

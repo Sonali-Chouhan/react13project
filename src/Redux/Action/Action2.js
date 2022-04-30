@@ -1,12 +1,12 @@
 import {
   create_post,
-  show_List,
+  user_List,
   delete_post,
   update_post,
-  show_post,
-  edit_post
+  user_post,
 } from "../Type";
 import instance from "../../Base/ApiBase";
+
 export const CreatePost = (data) => {
   return (dispatch) => {
     return instance
@@ -25,15 +25,18 @@ export const CreatePost = (data) => {
       });
   };
 };
+
 export const PostList = () => {
   return (dispatch) => {
-    return instance.get("/posts").then((data) => {
-      dispatch({
-        type: show_List,
-        payload: data,
-      });
-    })
-    .catch((error) => {
+    return instance
+      .get("/posts")
+      .then((data) => {
+        dispatch({
+          type: user_List,
+          payload: data,
+        });
+      })
+      .catch((error) => {
         dispatch({
           type: "ERROR",
           payload: error.response,
@@ -41,6 +44,7 @@ export const PostList = () => {
       });
   };
 };
+
 export const DeletePost = (id) => {
   return (dispatch) => {
     return instance
@@ -49,7 +53,26 @@ export const DeletePost = (id) => {
         dispatch({
           type: delete_post,
           payload: data,
-          
+        });
+      })
+    
+      .catch((error) => {
+        dispatch({
+          type: "ERROR",
+          payload: error.response,
+        });
+      });
+  };
+};
+
+export const ShowPost = (id) => {
+  return (dispatch) => {
+    return instance
+      .get(`/posts/${id}`)
+      .then((data) => {
+        dispatch({
+          type: user_post,
+          payload: data,
         });
       })
       .catch((error) => {
@@ -60,42 +83,25 @@ export const DeletePost = (id) => {
       });
   };
 };
-export const ShowPost = (id) => {
-    return (dispatch) => {
-        return instance.get(`/posts/${id}`)
-        .then((data) => {
-          dispatch({
-            type:show_post,
-            payload:data,
-             
-          });
-        })
-        .catch((error) => {
-            dispatch({
-              type: "ERROR",
-              payload: error.response,
-            });
-          });
-      }; 
-  };
- export const UpdatePost = (id,data) => {
-   debugger
-   console.log("id",id)
-   console.log("data",data)
-    return (dispatch) => {
-      return instance.put(`/posts/${id}`,{posts:data})
+
+export const UpdatePost = (id, data) => {
+  
+  console.log("id", id);
+  console.log("data", data);
+  return (dispatch) => {
+    return instance
+      .put(`/posts/${id}`, { posts: data })
       .then((data) => {
         dispatch({
-          type:update_post,
-          payload:data,
-           
+          type: update_post,
+          payload: data,
         });
       })
       .catch((error) => {
-          dispatch({
-            type: "ERROR",
-            payload: error.response,
-          });
+        dispatch({
+          type: "ERROR",
+          payload: error.response,
         });
+      });
   };
-}
+};

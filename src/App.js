@@ -1,25 +1,28 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SingIn from "./Component/SingIn";
+import Login from "./Component/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./Component/Home";
 import Headers from "./Header";
-import SingUp from "./Component/SingUp";
+import Registration from "./Component/Registration";
 import PageNot from "./Component/PageNot";
 import Dashbord from "./Component/DashBoard/Dashbord";
 import About from "./Component/DashBoard/About";
-import ContextAdd from "./Component/DashBoard/ContextAdd";
-import ShowList from "./Component/DashBoard/ShowList";
-import LogOut from "./Component/DashBoard/LogOut";
+import Createuser from "./Component/DashBoard/Createuser";
+import Userlist from "./Component/DashBoard/Userlist";
+import Logout from "./Component/DashBoard/Logout";
 import Navbar from "./Component/DashBoard/Navbar";
-import ShowPost from "./Component/DashBoard/ShowPost";
-//import LoginUser from "./Component/User";
+// import ShowPost from "./Component/DashBoard/ShowPost";
 
 function App() {
+
   const gettoken = localStorage.getItem("Token");
+  // const gettoken1=localStorage.getItem("Token1");
+  // console.log("aaa",gettoken1)
+
   return (
     <div className="App">
       <ToastContainer />
@@ -31,12 +34,12 @@ function App() {
             </div>
             <Routes>
               <Route path="/dashboard" element={<Dashbord />} />
-              <Route path="/usercontext" element={<ContextAdd />} />
-              <Route path="/usercontext/:id" element={<ContextAdd />} />
-              <Route path="/userlist" element={<ShowList />} />
-              <Route path="/userLogOut" element={<LogOut />} />
+              <Route path="/createuser" element={<Createuser />} />
+              <Route path="/createuser/:id" element={<Createuser />} />
+              <Route path="/userlist" element={<Userlist />} />
+              <Route path="/userlogout" element={<Logout />} />
               <Route path="/about" element={<About />} />
-              <Route path="/showpost" element={<ShowPost/>}/>
+              {/* <Route path="/usershow" element={<ShowPost/>}/> */}
               <Route />
             </Routes>
           </>
@@ -47,9 +50,8 @@ function App() {
             </div>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/user-singIn" element={<SingIn />} />
-              <Route path="/user-singUp" element={<SingUp />} />
-              {/* <Route path="/login-user" element={<LoginUser />} /> */}
+              <Route path="/user-login" element={<Login/>} />
+              <Route path="/user-registration" element={<Registration/>} />
               <Route path="*" element={<PageNot />} />
             </Routes>
           </>

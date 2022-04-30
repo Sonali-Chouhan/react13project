@@ -1,40 +1,54 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DeletePost, PostList,ShowPost,Editpost} from "../../Redux/Action/Auth";
+import { DeletePost, PostList,ShowPost} from "../../Redux/Action/Action2";
 import { useNavigate } from "react-router";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
-const ShowList = () => {
+const Userlist = () => {
 
   let navigate = useNavigate();
 
   const dispatch = useDispatch();
 
   const record = useSelector((state) => state?.Authreducer?.User?.data?.posts);
+  const mess = useSelector((state) => state?.Authreducer?.message);
+
   console.log("record",record)
+  const handleCreate=()=>{
+    navigate("/createuser")
+  }
   const handleDelete = (id) => {
     dispatch(DeletePost(id));
+    
   };
 
-  const handleShow = (id) => {
-    dispatch(ShowPost(id))
-    navigate("/showpost");
-  };
+  // const handleShow = (id) => {
+   
+  //   navigate("/showpost");
+  // };
 
   const handleEdit = (id) => {
-    // dispatch(Editpost(id))
-    // dispatch(UpdatePost(id))
-     navigate(`/usercontext/${id}`);
+    navigate(`/createuser/${id}`);
+    dispatch(ShowPost(id))
+    
+    
   };
 
   useEffect(() => {
+     
      dispatch(PostList());
-  },[]);
+     if(mess){
+      dispatch(PostList());
+     }
+  },[mess]);
+
 
   return (
     <div>
-      <h2>Show-List</h2>
+      
+      <h2>User-List</h2>
+      <Button className="memo" onClick={handleCreate} variant="info">Create-User</Button>
       <div>
         <Table striped bordered hover variant="dark">
           <thead>
@@ -43,7 +57,9 @@ const ShowList = () => {
               <th>Title</th>
               <th>Description</th>
               <th>User_Id</th>
-              <th colSpan={3}>Action</th>
+              <th>Created_At</th>
+              <th>Updated_At</th>
+              <th colSpan={2}>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -54,6 +70,8 @@ const ShowList = () => {
                   <td>{item.title}</td>
                   <td>{item.description}</td>
                   <td>{item.user_id}</td>
+                  <td>{item.created_at}</td>
+                  <td>{item.updated_at}</td>
                   <td>
                     <Button
                       variant="warning"
@@ -62,14 +80,14 @@ const ShowList = () => {
                       Delete
                     </Button>
                   </td>
-                  <td>
+                  {/* <td>
                     <Button
                       variant="info"
                       onClick={() =>handleShow(item.id)}
                     >
                       Show
                     </Button>
-                  </td>
+                  </td> */}
                   <td>
                     <Button
                       variant="success"
@@ -91,4 +109,4 @@ const ShowList = () => {
   );
 };
 
-export default ShowList;
+export default Userlist;

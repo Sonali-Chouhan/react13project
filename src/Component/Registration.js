@@ -1,34 +1,46 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { singUp } from "../Redux/Action/action";
+import { singUp } from "../Redux/Action/Action1";
 
-const SingUp = () => {
+const Registration= () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const dispatch = useDispatch();
-  let navigate = useNavigate();
   
+  const Data1=useSelector((state)=>state.reducer?.List?.data?.message);
+  const  Data2=useSelector((state)=>state.reducer?.errors?.data?.errors);
+  const dispatch = useDispatch();
+   console.log("data 66",Data2)
   //Sing-Up Functionality Here
   const handleRegistration = (data) => {
-    
-    navigate("/user-singIn");
     dispatch(singUp(data));
-    toast.success("🟢Successfully SingUp");
+    if(Data2){
+      toast.error("400:-)Email has already been taken")
+    }
+    // toast.success("🟢Successfully SingUp");
   };
+  useEffect(()=>{
+    if(Data1){
+      toast.info("User Registered successfully :-)")
+      window.location.href="/user-login"
+    }
+   
+     
+  },[Data1])
+
   return (
     <div>
       <div className="Formdiv">
         <Form onSubmit={handleSubmit(handleRegistration)}>
           <div className="fields">
-            <h3 className="headings">Sing-Up</h3>
+            <h3 className="headings">Registration</h3>
             <Form.Group className="mb-4" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -89,4 +101,4 @@ const SingUp = () => {
   );
 };
 
-export default SingUp;
+export default Registration;

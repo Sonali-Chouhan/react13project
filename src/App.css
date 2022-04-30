@@ -190,3 +190,8 @@ progress: undefined, */
   border:3px solid  #535353  ;
   background-color:  #e6dada;
 }
+.memo{
+  margin-left: 90%;
+  /* padding-bottom: 20px; */
+  margin-bottom: 20px;
+}
