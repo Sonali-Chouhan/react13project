@@ -1,10 +1,10 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Login from "./Component/Login";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import Login from "./Component/Login";
 import Home from "./Component/Home";
 import Headers from "./Header";
 import Registration from "./Component/Registration";
@@ -15,7 +15,6 @@ import Createuser from "./Component/DashBoard/Createuser";
 import Userlist from "./Component/DashBoard/Userlist";
 import Logout from "./Component/DashBoard/Logout";
 import Navbar from "./Component/DashBoard/Navbar";
-// import ShowPost from "./Component/DashBoard/ShowPost";
 
 function App() {
 
@@ -39,7 +38,6 @@ function App() {
               <Route path="/userlist" element={<Userlist />} />
               <Route path="/userlogout" element={<Logout />} />
               <Route path="/about" element={<About />} />
-              {/* <Route path="/usershow" element={<ShowPost/>}/> */}
               <Route />
             </Routes>
           </>

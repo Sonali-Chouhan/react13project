@@ -27,6 +27,7 @@ export const CreatePost = (data) => {
 };
 
 export const PostList = () => {
+
   return (dispatch) => {
     return instance
       .get("/posts")
@@ -83,14 +84,13 @@ export const ShowPost = (id) => {
       });
   };
 };
-
 export const UpdatePost = (id, data) => {
-  
-  console.log("id", id);
-  console.log("data", data);
+  console.log("data",data);
+  console.log("id",id);
   return (dispatch) => {
+    
     return instance
-      .put(`/posts/${id}`, { posts: data })
+      .put(`/posts/${id}`,{ post: data })
       .then((data) => {
         dispatch({
           type: update_post,

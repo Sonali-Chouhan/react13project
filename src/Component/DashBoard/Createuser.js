@@ -11,15 +11,16 @@ const Createuser = () => {
   const dispatch = useDispatch();
 
   let { id } = useParams();
-  console.log("id4", id);
+  
 
   const { register, handleSubmit, setValue } = useForm();
 
   let navigate = useNavigate();
 
-  // const Data = useSelector((state) => state?.Authreducer?.User?.data?.posts);
-  const isShow = useSelector((state) => state?.Authreducer?.isShow?.data?.post);
-  console.log("hh", isShow);
+  
+  const isShow = useSelector((state) => state?.Authreducer?.User?.data?.post);
+  console.log("hhhh",isShow)
+  
 
   const submit = (data) => {
     data["user_id"] = userId;
@@ -27,11 +28,15 @@ const Createuser = () => {
       dispatch(UpdatePost(id, data));
     } else {
       dispatch(CreatePost(data));
-      navigate("/userlist");
+     
     }
+    navigate("/userlist");
     
   };
-  const handleCancel = () => {};
+  const handleCancel = () => {
+    window.location.href="/createuser"
+
+  };
   useEffect(() => {
     const items = isShow;
     if (items) {
@@ -70,7 +75,7 @@ const Createuser = () => {
                 </button>{" "}
                 <button
                   className="buttonpost"
-                  type="submit"
+                  type="button"
                   onClick={handleCancel}
                 >
                   Cancel
