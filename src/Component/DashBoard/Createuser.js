@@ -20,9 +20,7 @@ const Createuser = () => {
   
   const isShow = useSelector((state) => state?.Authreducer?.User?.data?.post);
   console.log("hhhh",isShow)
-  
-
-  const submit = (data) => {
+   const submit = (data) => {
     data["user_id"] = userId;
     if (id) {
       dispatch(UpdatePost(id, data));

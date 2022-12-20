@@ -26,7 +26,7 @@ const Userlist = () => {
 
   const handleEdit = (id) => {
     navigate(`/createuser/${id}`);
-    dispatch(ShowPost(id));
+    dispatch(ShowPost(id)); 
   };
 
   useEffect(() => {
